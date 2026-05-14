@@ -1,7 +1,0 @@
-{
-  "name": "Odoo Dev",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "odoo",
-  "workspaceFolder": "/mnt/extra-addons",
-  "forwardPorts": [8069]
-}
