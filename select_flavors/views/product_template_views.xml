@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Heredamos la vista de formulario del producto para que todo esté vinculado -->
+    <record id="product_template_form_view_inherit_select_flavors" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.select.flavors</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- 
+                Aquí podrías añadir campos personalizados en el futuro.
+                De momento lo dejamos heredando correctamente para que el 
+                configurador de productos sepa que este módulo existe.
+            -->
+            <xpath expr="//page[@name='sales']" position="inside">
+                <group name="heladeria" string="Configuración de Heladería">
+                    <label for="name" string="Módulo de sabores activo"/>
+                    <div class="text-muted">
+                        Este producto activará el contador de 3 bolas en el TPV.
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

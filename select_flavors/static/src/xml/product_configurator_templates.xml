@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductConfiguratorPopup" t-inherit-mode="extension">
+        
+        <!-- XPATH ULTRA-ROBUSTO: Al final de la ventana principal -->
+        <xpath expr="//div[1]" position="inside">
+            <!-- Nuestra casilla fantasma (invisible para Mitchell, pero real para Odoo) -->
+            <div id="ghost_attribute" 
+                 class="attribute-value d-none" 
+                 style="display: none !important;">
+                <span class="value-name"></span>
+            </div>
+        </xpath>
+
+        <!-- El contador de sabores, puesto justo al principio de la ventana -->
+        <xpath expr="//div[1]" position="before">
+            <div class="alert alert-info m-3 text-center" style="border: 2px solid #0dcaf0; border-radius: 12px; background-color: #f8fdff;">
+                <h5 class="fw-bold mb-1">🍦 Selección de Sabores</h5>
+                <p class="mb-0">
+                    Bolas: 
+                    <strong>
+                        <t t-if="state and state.saboresAcumulados">
+                            <t t-esc="state.saboresAcumulados.length"/>
+                        </t>
+                        <t t-else="">0</t> / 3
+                    </strong>
+                </p>
+            </div>
+        </xpath>
+
+    </t>
+</templates>
